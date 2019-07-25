@@ -14,10 +14,10 @@ namespace ImageClassification
             string assetsRelativePath = @"../../../assets";
             string assetsPath = GetAbsolutePath(assetsRelativePath);
 
-            var tagsTsv = Path.Combine(assetsPath, "inputs", "catsdogs", "image_list.tsv");
-            var imagesFolder = Path.Combine(assetsPath, "inputs", "catsdogs", "images");  
-            var labelsTxt = Path.Combine(assetsPath, "inputs", "catsdogs", "labels.txt");
-            var pathToModel = @"D:\projects\Python projects\ArrowsAndCrosses\BinaryImageClassifier\models\zakladkiNetV2\1563973726";
+            var tagsTsv = Path.Combine(assetsPath, "inputs", "zakladki", "image_list.tsv");
+            var imagesFolder = Path.Combine(assetsPath, "inputs", "zakladki", "images");  
+            var labelsTxt = Path.Combine(assetsPath, "inputs", "zakladki", "labels.txt");
+            var pathToModel = @"D:\Files\GitHub\BinaryImageClassifier\BinaryImageClassifier\models\mobileNetV2\1564031768";
 
             try
             {

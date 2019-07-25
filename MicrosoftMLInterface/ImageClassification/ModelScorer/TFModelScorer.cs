@@ -33,8 +33,8 @@ namespace ImageClassification.ModelScorer
 
         public struct ImageNetSettings
         {
-            public const int imageHeight = 150;
-            public const int imageWidth = 150;
+            public const int imageHeight = 224;
+            public const int imageWidth = 224;
             public const float mean = 3;       
             public const bool channelsLast = true;
             public const float scale = 1 / 255f;
