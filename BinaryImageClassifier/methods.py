@@ -81,6 +81,7 @@ def AccRecPrec(predictions, test_labels):
     print("precision:", p)
     print("f1:       ", 2*p*r/(p+r))
 
+# Making plot loss/epochs.
 def loss(history_dict):
     acc = history_dict['acc']
     val_acc = history_dict['val_acc']
@@ -100,6 +101,7 @@ def loss(history_dict):
 
     plt.show()
 
+# Making plot acc/epochs.
 def acc(history_dict):
     acc = history_dict['acc']
     val_acc = history_dict['val_acc']
@@ -115,4 +117,36 @@ def acc(history_dict):
     plt.ylabel('Accuracy')
     plt.legend()
 
+    plt.show()
+
+# Making 2 plots: loss/epochs, acc/epochs.
+def accLossFine(history, history_fine):
+    acc = history['acc']
+    val_acc = history['val_acc']
+    loss = history['loss']
+    val_loss = history['val_loss']
+
+    acc += history_fine['acc']
+    val_acc += history_fine['val_acc']
+    loss += history_fine['loss']
+    val_loss += history_fine['val_loss']
+
+    epochs = len(range(1, len(acc) + 1))
+
+    plt.figure(figsize=(8, 8))
+    plt.subplot(2, 1, 1)
+    plt.plot(acc, label='Training Accuracy')
+    plt.plot(val_acc, label='Validation Accuracy')
+    plt.ylim([0.9, 1])
+    plt.plot([epochs-1,epochs-1], plt.ylim(), label='Start Fine Tuning')
+    plt.legend(loc='lower right')
+    plt.title('Training and Validation Accuracy')
+
+    plt.subplot(2, 1, 2)
+    plt.plot(loss, label='Training Loss')
+    plt.plot(val_loss, label='Validation Loss')
+    plt.ylim([0, 0.2])
+    plt.plot([epochs-1,epochs-1], plt.ylim(), label='Start Fine Tuning')
+    plt.legend(loc='upper right')
+    plt.title('Training and Validation Loss')
     plt.show()    
